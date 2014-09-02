@@ -40,6 +40,15 @@
 						{{ Form::close() }}
 						</span>
 					@endif
+					@if((Auth::user()->role == "Admin" && $pitch->hasAdminApproval == false))
+						<span class="pull-right">
+						{{ Form::open(array('url' => 'pitches/'.$pitch->id.'/approve', 'method' => 'PUT', 'class'=>'submittable-form')) }}
+							<button type="button" class="btn btn-success submittable">
+								Edit
+							</button>
+						{{ Form::close() }}
+						</span>
+					@endif
 				@else
 					<h3>Status: {{ $pitch->status }}</h3>
 				@endif
