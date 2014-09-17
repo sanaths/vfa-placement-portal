@@ -29,6 +29,7 @@
               <li><a href="{{ URL::to('/opportunities') }}"><i class="fa fa-briefcase"></i> Opportunities</a></li>
               <li><a href="{{ URL::to('/companies') }}"><i class="fa fa-building-o"></i> Companies</a></li>
               <li><a href="{{ URL::to('reports/companies') }}"><i class="fa fa-tachometer"></i> Status</a></li>
+              <li><a href="{{ URL::to('/favorites') }}"><i class="fa fa-star"></i> Favorites</a></li>
             @elseif( Auth::user()->role == "Hiring Manager" )
               @if(Auth::user()->profile->isProfileComplete() && Auth::user()->profile->company->isProfileComplete() && Auth::user()->profile->company->hasPublishedOpportunities())
                 <li class=""><a href="{{ URL::to('/') }}"><i class="fa fa-home"></i> Dashboard</a></li>
