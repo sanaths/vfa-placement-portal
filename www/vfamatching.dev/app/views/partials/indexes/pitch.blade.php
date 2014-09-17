@@ -40,6 +40,9 @@
 						{{ Form::close() }}
 						</span>
 					@endif
+					@if((Auth::user()->role == "Admin" && $pitch->hasAdminApproval == false) 
+						@include('partials.components.pitch-button')
+					@endif 
 				@else
 					<h3>Status: {{ $pitch->status }}</h3>
 				@endif
